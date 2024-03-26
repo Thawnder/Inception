@@ -25,6 +25,6 @@ delete : down
 	@docker volume rm wordpress && echo "\033[1;33m~| Nettoyage des images/containers/volumes de Docker : OK |~\033[0m"\
 	
 prune :
-	@sudo rm -rf ~/inception_data/wordpress/*
-	@sudo rm -rf ~/inception_data/mariadb/*
+	@sudo rm -rf /home/inception_data/wordpress/*
+	@sudo rm -rf /home/inception_data/mariadb/*
 	@docker system prune -af && echo "\033[1;33m~| Nettoyage du cache de Docker : OK |~\033[0m"\
