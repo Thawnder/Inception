@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [ -d "/home/inception_data" ]; then \
+if [ -d "~/inception_data" ]; then \
 	echo "/inception_data directory already exists"; else \
-	mkdir /home/inception_data; \
+	mkdir ~/inception_data; \
 fi
 
 if [ -d "~/inception_data/wordpress" ]; then \
 	echo "/inception_data/wordpress already exists"; else \
-	mkdir /home/inception_data/wordpress; \
+	mkdir ~/inception_data/wordpress; \
 fi
 
 if [ -d "~/inception_data/mariadb" ]; then \
 	echo "/inception_data/mariadb already exists"; else \
-	mkdir /home/inception_data/mariadb; \
+	mkdir ~/inception_data/mariadb; \
 fi
 
 sudo apt-get update
