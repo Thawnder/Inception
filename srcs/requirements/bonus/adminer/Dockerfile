@@ -30,4 +30,4 @@ RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1
 
 EXPOSE 8080
 
-CMD ["php8.0", "-S", "[::]:8080", "-t", "/var/www"]
+CMD ["php7.3", "-S", "[::]:8080", "-t", "/var/www"]
