@@ -53,6 +53,56 @@ services:
     - "443:443"
     restart: unless-stopped
 
+    redis:
+      build:
+        context: ./requirements/bonus/redis
+        dockerfile: Dockerfile
+      container_name: redis
+      ports:
+        - "6379:6379"
+      networks:
+        - inception
+      restart: always
+
+    vsftpd:
+      build:
+        context: .
+        dockerfile: requirements/bonus/vsftpd/Dockerfile
+        args:
+          FTP_USR: ${FTP_USR}
+          FTP_PWD: ${FTP_PWD}
+      container_name: vsftpd
+      ports:
+        - "42:42"
+        - "40000-40100:40000-40100"
+      volumes:
+        - wp-volume:/var/www/
+      networks:
+      - inception
+      restart: always
+  
+    adminer:
+      build:
+        context: .
+        dockerfile: requirements/bonus/adminer/Dockerfile
+      container_name: adminer
+      depends_on:
+        - mariadb
+      ports:
+        - "8080:8080"
+      networks:
+      - inception
+      restart: always
+
+    website:
+      build:
+        context: .
+        dockerfile: requirements/bonus/website/Dockerfile
+      container_name: website
+      ports:
+        - "80:80"
+      restart: always
+
 volumes:
   wordpress:
     name: wordpress
