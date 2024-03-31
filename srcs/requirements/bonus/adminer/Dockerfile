@@ -1,11 +1,10 @@
 FROM debian:buster
 
-ARG PHP_VERSION=8.0
+ARG PHP_VERSION=7.3
 
 RUN apt-get update && apt-get install -y \
     php${PHP_VERSION} \
     php${PHP_VERSION}-common \
-    php${PHP_VERSION}-session \
     php${PHP_VERSION}-iconv \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-curl \
@@ -14,7 +13,6 @@ RUN apt-get update && apt-get install -y \
     php${PHP_VERSION}-imap \
     php${PHP_VERSION}-cgi \
     php${PHP_VERSION}-pdo \
-    php${PHP_VERSION}-pdo_mysql \
     php${PHP_VERSION}-soap \
     php${PHP_VERSION}-posix \
     php${PHP_VERSION}-gettext \
